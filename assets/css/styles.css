@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
 
-:root {
+:root, :root[data-theme="dark"] {
   --primary-color: #F0F0F0;
   --primary-bg-color: #111217;
   --secondary-bg-color: #28292E;
@@ -11,6 +11,21 @@
   --icon-color: #C7C8C9;
 }
 
+:root[data-theme="light"] {
+  --primary-color: #0B0B0F;
+  --primary-bg-color: #E9E9E9;
+  --secondary-bg-color: #C7C8C9;
+  --border-color: #C7C8C9;
+  --title-color: #0B0B0F;
+  --text-color: #28292E;
+  --link-color: #28292E;
+  --icon-color: #56575A;
+}
+
+html[data-theme="light"] .brand-logo {
+  filter: invert(1);
+}
+ 
 * {
   margin: 0;
   padding: 0;
@@ -26,6 +41,12 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--text-color);
+}
+
+a::hover {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 i {
@@ -54,6 +75,8 @@ i {
 #toggleTheme {
   font-size: 1.5rem;
   color: var(--primary-color);
+  cursor: pointer;
+  transition: ease-in-out .5s;
 }
 
 .menu {
